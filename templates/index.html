@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Sign Finder</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='images/zodiac-symbols.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+
+
+</head>
+<body style="height: 100vh; display: flex; align-items: center;">
+    <div class="container"">
+        <h2>🔮 Find Your Zodiac Sign & Age</h2>
+        <form action="/" method="post">
+            <label>Date of Birth:</label>
+            <input type="date" name="dob" required>
+
+            <label>Gender:</label>
+            <select name="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <button type="submit">Find My Zodiac</button>
+        </form>
+    </div>
+</body>
+</html>
