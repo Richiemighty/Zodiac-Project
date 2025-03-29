@@ -95,5 +95,174 @@ button:hover {
 
 
 
+.gender-options {
+    display: flex;
+    gap: 15px; /* Space between options */
+    align-items: center;
+    flex-wrap: wrap; /* Prevents overflow on small screens */
+}
 
+.gender-options input {
+    display: none; /* Hide default radio */
+}
+
+.gender-options label {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #f9d423;
+    transition: all 0.3s ease-in-out;
+}
+
+.gender-options input:checked + label {
+    background: #f9d423;
+    color: black;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .gender-options {
+        flex-direction: column; /* Stack vertically on small screens */
+        gap: 10px;
+    }
+    .gender-options label {
+        font-size: 18px;
+        padding: 12px 18px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .back-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .back-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+
+
+
+
+/* Profile Section */
+.profile {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Social Links Grid */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Individual Social Button Styling */
+.social-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+/* Icon Colors */
+.email { background: #ff6b6b; }      /* Red */
+.linkedin { background: #0077b5; }  /* Blue */
+.github { background: #333; }       /* Dark Gray */
+.website { background: #4caf50; }   /* Green */
+
+/* Hover Effects */
+.social-btn:hover {
+    opacity: 0.8;
+}
+
+
+
+
+/* Gender Selection - Side by Side */
+.gender-options {
+    display: flex;
+    gap: 15px; /* Space between options */
+    align-items: center;
+}
+
+/* Hide default radio button */
+.gender-options input[type="radio"] {
+    display: none;
+}
+
+/* Custom Radio Button Styling */
+.gender-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: 2px solid #4caf50; /* Green Border */
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Add color effect when selected */
+.gender-options input[type="radio"]:checked + label {
+    background: #4caf50;
+    color: white;
+}
 

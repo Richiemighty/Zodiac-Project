@@ -8,8 +8,11 @@
 </head>
 <style>
     /* 🌌 General Styles */
+
 body {
-    background: linear-gradient(to right, #1c1c1c, #333333);
+    /* background: linear-gradient(to right, #1c1c1c, #333333); */
+    background: url("{{ url_for('static', filename='images/zodiac-symbols.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -106,6 +109,8 @@ h2 {
 }
 
 </style>
+
+
 <body>
     <div class="container result-container">
         <h2 class="fade-in">🌟 Your Zodiac Details 🌟</h2>
