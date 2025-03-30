@@ -13,8 +13,9 @@ body {
     background: url("{{ url_for('static', filename='images/zodiac-symbols.jpg') }}") no-repeat center center fixed;
     background-size: cover;
     display: flex;
+    overflow-y: auto;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     /* height: 100vh; */
     text-align: center;
 }
@@ -23,9 +24,12 @@ body {
 .container {
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 30px;
+    padding: 20px;
+    padding-top: 130px;
+    /* margin-top: 100px; */
     border-radius: 10px;
     width: 400px;
+    overflow: auto;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
 }
 
