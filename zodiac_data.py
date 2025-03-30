@@ -1,10 +1,3 @@
-from flask import Flask, request
-from twilio.twiml.messaging_response import MessagingResponse
-from datetime import datetime
-
-app = Flask(__name__)
-
-
 zodiac_data = {
     "Aries": {
         "dates": (3, 21, 4, 19),
@@ -296,43 +289,3 @@ zodiac_data.update({
         "worst_matches": ["Gemini ♊", "Sagittarius ♐"]
     }
 })
-
-def get_zodiac_sign(dob):
-    month, day = map(int, dob.split("/"))
-    for sign, info in zodiac_data.items():
-        start_month, start_day, end_month, end_day = info["dates"]
-        if (month == start_month and day >= start_day) or (month == end_month and day <= end_day):
-            return sign, info
-    return None, None  # If no match is found
-
-@app.route("/whatsapp", methods=["POST"])
-def whatsapp_bot():
-    """Handles incoming WhatsApp messages."""
-    incoming_msg = request.form.get("Body").strip()
-    response = MessagingResponse()
-    
-    if "/" in incoming_msg:  # User sends a date (MM/DD)
-        zodiac_sign, info = get_zodiac_sign(incoming_msg)
-        if zodiac_sign:
-            msg = (
-                f"✨ *Your Zodiac Sign:* {zodiac_sign}\n"
-                f"🔥 *Element:* {info['element']}\n"
-                f"🪐 *Ruling Planet:* {info['ruling_planet']}\n"
-                f"🐏 *Symbol:* {info['symbol']}\n"
-                f"💪 *Strengths:* {', '.join(info['strengths'])}\n"
-                f"⚠️ *Weaknesses:* {', '.join(info['weaknesses'])}\n"
-                f"🎲 *Lucky Number:* {info['lucky_number']}\n"
-                f"🎨 *Lucky Color:* {info['color']}\n"
-                f"💖 *Best Matches:* {', '.join(info['best_matches'])}\n"
-                f"❌ *Worst Matches:* {', '.join(info['worst_matches'])}\n"
-            )
-        else:
-            msg = "❌ *Invalid date format!* Please send your DOB as *MM/DD* (e.g., 04/15 for April 15)."
-    else:
-        msg = "👋 Welcome to the *Zodiac Sign Bot*! Created by Richie Mighty (https://richiemighty.vercel.app). Send your date of birth in *MM/DD* format to get your sign."
-
-    response.message(msg)
-    return str(response)
-
-if __name__ == "__main__":
-    app.run(debug=True)
