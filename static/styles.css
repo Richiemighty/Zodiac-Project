@@ -99,7 +99,8 @@ button:hover {
     display: flex;
     gap: 15px; /* Space between options */
     align-items: center;
-    flex-wrap: wrap; /* Prevents overflow on small screens */
+    justify-content: center;
+    /* flex-wrap: wrap; Prevents overflow on small screens */
 }
 
 .gender-options input {
@@ -122,17 +123,7 @@ button:hover {
     color: black;
 }
 
-/* Mobile Optimization */
-@media (max-width: 480px) {
-    .gender-options {
-        flex-direction: column; /* Stack vertically on small screens */
-        gap: 10px;
-    }
-    .gender-options label {
-        font-size: 18px;
-        padding: 12px 18px;
-    }
-}
+
 
 
 
